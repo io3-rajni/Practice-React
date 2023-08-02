@@ -10,9 +10,24 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material/styles';
 
-export default function Practice() {
-    const [open, setOpen] = React.useState(false);
+export default function Practice(props) {
+    const { open, setOpen } = props;
+
+    const [name, setname] = React.useState()
+    const [lastName, setLastName] = React.useState()
+    const [age, setAge] = React.useState()
+    const [qualification, setQualification] = React.useState()
+    const [pincode, setPincode] = React.useState()
+    const [state, setState] = React.useState()
     const theme = useTheme();
+    const [data, setData] = React.useState({
+        firstName: '',
+        lastName: '',
+        dob: '',
+        qualification: '',
+        state: '',
+        pincode: ''
+    })
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleClickOpen = () => {
@@ -22,12 +37,50 @@ export default function Practice() {
     const handleClose = () => {
         setOpen(false);
     };
+    const handleName = (event) => {
+        setname(event?.target?.value)
+    }
+    const handleLastName = (event) => {
+        setLastName(event?.target?.value)
+        console.log("last Name", event?.target?.value)
+    }
+    const handleAge = (event) => {
+        setAge(event?.target?.value)
+        console.log("DOB", event?.target?.value)
+    }
+    const handleQualification = (e) => {
+        setQualification(e?.target?.value)
+        console.log("Qualification", e?.target?.value)
+    }
+    const handleState = (e) => {
+        setState(e?.target?.value)
+        console.log("State", e?.target?.value)
+    }
+    const handlePincode = (e) => {
+        setPincode(e?.target?.value)
+        console.log("pincode", e?.target?.value)
+    }
 
+    const handleSubmit = () => {
+
+        setData({
+            firstName: name,
+            lastName: lastName,
+            dob: age,
+            qualification: qualification,
+            state: state,
+            pincode: pincode
+
+        })
+        setOpen(false)
+
+
+    }
+
+
+    console.log("data", data)
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                <h1>Open Ragistration Form</h1>
-            </Button>
             <Dialog
                 fullScreen={fullScreen}
                 open={open}
@@ -51,18 +104,19 @@ export default function Practice() {
                         >
                             <div>
                                 <TextField
-
                                     id="outlined-error"
                                     label="First Name"
-                                    value=""
+                                    value={name}
+                                    onChange={handleName}
+                                    type="text"
                                 />
                                 <TextField
 
                                     id="outlined-error-helper-text"
                                     label="Last Name"
-                                    value=""
-
-
+                                    value={lastName}
+                                    onChange={handleLastName}
+                                    type="text"
 
                                 />
                             </div>
@@ -70,17 +124,18 @@ export default function Practice() {
                                 <TextField
 
                                     id="outlined-error"
-                                    label="Age"
-                                    type='number'
-                                    value=""
+                                    label="DOB"
+                                    value={age}
+                                    type="date"
+                                    onChange={handleAge}
 
                                 />
                                 <TextField
 
                                     id="outlined-error-helper-text"
                                     label="Qualification"
-                                    value=""
-
+                                    value={qualification}
+                                    onChange={handleQualification}
 
                                 />
                             </div>
@@ -89,15 +144,17 @@ export default function Practice() {
 
                                     id="outlined-error"
                                     label="State"
-                                    value=""
+                                    value={state}
+                                    onChange={handleState}
                                 />
                                 <TextField
 
                                     id="outlined-error-helper-text"
                                     label="Pincode"
-                                    value=""
-                                    type='number'
-
+                                    value={pincode}
+                                    type='text'
+                                    onChange={handlePincode}
+                                    inputProps={{ maxlength: 6 }}
 
                                 />
                             </div>
@@ -111,7 +168,7 @@ export default function Practice() {
                     <Button autoFocus onClick={handleClose}>
                         Cancle
                     </Button>
-                    <Button onClick={handleClose} autoFocus>
+                    <Button onClick={handleSubmit} autoFocus>
                         Submit
                     </Button>
                 </DialogActions>
