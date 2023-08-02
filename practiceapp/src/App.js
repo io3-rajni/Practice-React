@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       {/* <Parentcomponant /> */}
+      
       <Practice />
       {/* <h1>This is a heading tag</h1> */}
     </>
