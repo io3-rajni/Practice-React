@@ -11,23 +11,23 @@ import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material/styles';
 
 export default function Practice(props) {
-    const { open, setOpen } = props;
+    const { open, setOpen, parent } = props;
 
-    const [name, setname] = React.useState()
+    const [firstName, setFirstName] = React.useState()
     const [lastName, setLastName] = React.useState()
     const [age, setAge] = React.useState()
     const [qualification, setQualification] = React.useState()
     const [pincode, setPincode] = React.useState()
     const [state, setState] = React.useState()
     const theme = useTheme();
-    const [data, setData] = React.useState({
-        firstName: '',
-        lastName: '',
-        dob: '',
-        qualification: '',
-        state: '',
-        pincode: ''
-    })
+    // const [data, setData] = React.useState({
+    //     firstName: '',
+    //     lastName: '',
+    //     dob: '',
+    //     qualification: '',
+    //     state: '',
+    //     pincode: ''
+    // })
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleClickOpen = () => {
@@ -38,7 +38,7 @@ export default function Practice(props) {
         setOpen(false);
     };
     const handleName = (event) => {
-        setname(event?.target?.value)
+        setFirstName(event?.target?.value)
     }
     const handleLastName = (event) => {
         setLastName(event?.target?.value)
@@ -62,23 +62,24 @@ export default function Practice(props) {
     }
 
     const handleSubmit = () => {
-
-        setData({
-            firstName: name,
+        parent({
+            firstName: firstName,
             lastName: lastName,
             dob: age,
             qualification: qualification,
             state: state,
             pincode: pincode
-
         })
         setOpen(false)
-
-
+        setLastName()
+        setAge()
+        setQualification()
+        setState()
+        setPincode()
     }
 
 
-    console.log("data", data)
+    // console.log("data", data)
     return (
         <div>
             <Dialog
@@ -106,7 +107,7 @@ export default function Practice(props) {
                                 <TextField
                                     id="outlined-error"
                                     label="First Name"
-                                    value={name}
+                                    value={firstName}
                                     onChange={handleName}
                                     type="text"
                                 />
