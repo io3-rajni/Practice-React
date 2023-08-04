@@ -12,15 +12,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
+import ProfileDailog from "./ProfileDailog";
+import SiginDailog from "./SiginDailog"
 // const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar(props) {
     const { setOpen } = props
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -38,6 +39,10 @@ function Navbar(props) {
     const handleSignIn = () => {
         setOpen(true)
         console.log("data", setOpen)
+    }
+    const handleProfile = () => {
+        setOpen(true)
+        console.log("profie")
     }
     // const parentCall = (dataAccess) => {
     //     setData(dataAccess)
@@ -133,7 +138,7 @@ function Navbar(props) {
                         </Box>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'inline' } }}>
 
-                            <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white' }}>
+                            <Button onClick={handleProfile} sx={{ my: 2, color: 'white' }}>
                                 Profile </Button>
 
                         </Box>
@@ -167,11 +172,17 @@ function Navbar(props) {
                     </Toolbar>
                 </Container>
             </AppBar>
-            {/* <Practice
-                open={open}
-                setOpen={setOpen}
+
+            <SiginDailog
+                open={openSiginDailog}
+                setOpen={setOpenSiginDailog}
                 parent={parentCall}
-            /> */}
+            />
+            <ProfileDailog
+                open={openProfileDailog}
+                setOpen={setOpenProfileDailog}
+            />
+
         </>
     );
 }
