@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material/styles';
 
-export default function Practice(props) {
+export default function SiginDailog(props) {
     const { open, setOpen, parent } = props;
 
     const [firstName, setFirstName] = React.useState()

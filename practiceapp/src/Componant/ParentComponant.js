@@ -1,16 +1,17 @@
-import Button from '@mui/material/Button';
+
+import ChildComponant from "./ChildComponant"
 import React, { useState } from "react"
 import Navbar from './Navbar';
-import ChildComponant from "./ChildComponant"
-import Practice from "./Practice "
+// import SiginDailog from "./SiginDailog"
+// import ProfileDailog from "./ProfileDailog";
 const Parentcomponant = () => {
-    const [parent, setParent] = useState("")
+    // const [parent, setParent] = useState("")
     const [open, setOpen] = useState(false);
     const [data, setData] = useState()
-    const childCall = (res) => {
-        console.log("gh", res)
-    }
-    const test = 'this is parent data'
+    // const childCall = (res) => {
+    //     console.log("gh", res)
+    // }
+    // const test = 'this is parent data'
 
     const parentCall = (dataAccess) => {
         setData(dataAccess)
@@ -21,18 +22,15 @@ const Parentcomponant = () => {
 
         <Navbar
             setOpen={setOpen} />
-        <Practice
+        {/* <SiginDailog
             open={open}
             setOpen={setOpen}
             parent={parentCall}
         />
-        {/* <ChildComponant
-            data={test}
-            passData={parent}
-            parent={setParent}
-            childCall={childCall}
+        <ProfileDailog
+             open={open}
+             setOpen={setOpen}
         /> */}
-
 
         <ul>
             <li >FirstName : {data?.firstName}</li>
@@ -43,6 +41,12 @@ const Parentcomponant = () => {
             <li>Pincode : {data?.pincode}</li>
 
         </ul>
+        {/* <ChildComponant
+            data={test}
+            passData={parent}
+            parent={setParent}
+            childCall={childCall}
+        /> */}
     </>
 }
 export default Parentcomponant
