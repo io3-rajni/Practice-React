@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import React, { useState } from "react"
+import Navbar from './Navbar';
 import ChildComponant from "./ChildComponant"
 import Practice from "./Practice "
 const Parentcomponant = () => {
@@ -11,15 +12,15 @@ const Parentcomponant = () => {
     }
     const test = 'this is parent data'
 
-    const handleClick = () => {
-        setOpen(true)
-    }
     const parentCall = (dataAccess) => {
         setData(dataAccess)
         console.log("Parent Call", dataAccess)
         console.log("first name", parent.firstName)
     }
     return <>
+
+        <Navbar
+            setOpen={setOpen} />
         <Practice
             open={open}
             setOpen={setOpen}
@@ -33,9 +34,6 @@ const Parentcomponant = () => {
         /> */}
 
 
-        <Button variant="contained" color="success" onClick={handleClick}>
-            Success
-        </Button>
         <ul>
             <li >FirstName : {data?.firstName}</li>
             <li>Last Name : {data?.lastName}</li>
