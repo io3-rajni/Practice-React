@@ -19,34 +19,18 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
 const ProfileDailog = (props) => {
-    const { open, setOpen } = props
-    // const [profileData, setProfieData] = useState({
-    //     yourHobbies: "",
-    //     YourExperience: "",
-    //     YourExpetatiion: "",
-    //     Gender: ""
-    // })
-    // const [profileData, setProfileData] = React.useState();
+
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-    const handleSubmit = () => {
-        // setProfieData(profileData)
-        setOpen(true)
-        console.log("Pofiledata")
-    }
-
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     return (
         <div>
 
             <Dialog
                 fullScreen={fullScreen}
-                open={open}
-                onClose={handleClose}
+                // open={open}
+                // onClose={handleClose}
                 aria-labelledby="responsive-dialog-title"
             >
                 <DialogTitle id="responsive-dialog-title">
@@ -121,10 +105,10 @@ const ProfileDailog = (props) => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
+                    <Button autoFocus>
                         Cancle
                     </Button>
-                    <Button onClick={handleSubmit} autoFocus>
+                    <Button autoFocus>
                         Submit
                     </Button>
                 </DialogActions>
