@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react'
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -6,28 +6,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { TextField, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+const SiginDailog = (props) => {
+    const { sigin, setSigin } = props
 
-export default function SiginDailog(props) {
-    const { open, setOpen, parent } = props;
 
-    const [firstName, setFirstName] = React.useState()
-    const [lastName, setLastName] = React.useState()
-    const [age, setAge] = React.useState()
-    const [qualification, setQualification] = React.useState()
-    const [pincode, setPincode] = React.useState()
-    const [state, setState] = React.useState()
+
     const theme = useTheme();
-    // const [data, setData] = React.useState({
-    //     firstName: '',
-    //     lastName: '',
-    //     dob: '',
-    //     qualification: '',
-    //     state: '',
-    //     pincode: ''
-    // })
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     // const handleClickOpen = () => {
@@ -35,66 +21,25 @@ export default function SiginDailog(props) {
     // };
 
     const handleClose = () => {
-        setOpen(false);
+        setSigin(false);
     };
-    const handleName = (event) => {
-        setFirstName(event?.target?.value)
-    }
-    const handleLastName = (event) => {
-        setLastName(event?.target?.value)
-        console.log("last Name", event?.target?.value)
-    }
-    const handleAge = (event) => {
-        setAge(event?.target?.value)
-        console.log("DOB", event?.target?.value)
-    }
-    const handleQualification = (e) => {
-        setQualification(e?.target?.value)
-        console.log("Qualification", e?.target?.value)
-    }
-    const handleState = (e) => {
-        setState(e?.target?.value)
-        console.log("State", e?.target?.value)
-    }
-    const handlePincode = (e) => {
-        setPincode(e?.target?.value)
-        console.log("pincode", e?.target?.value)
-    }
 
-    const handleSubmit = () => {
-        parent({
-            firstName: firstName,
-            lastName: lastName,
-            dob: age,
-            qualification: qualification,
-            state: state,
-            pincode: pincode
-        })
-        setOpen(false)
-        setLastName()
-        setAge()
-        setQualification()
-        setState()
-        setPincode()
-    }
-
-
-    // console.log("data", data)
     return (
         <div>
+            {/* <Button variant="outlined" onClick={handleClickOpen}>
+                Open responsive dialog
+            </Button> */}
             <Dialog
                 fullScreen={fullScreen}
-                open={open}
+                open={sigin}
                 onClose={handleClose}
                 aria-labelledby="responsive-dialog-title"
             >
                 <DialogTitle id="responsive-dialog-title">
-
-                    {"Ragistration Form"}
+                    {"Enter Your Details"}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-
                         <Box
                             component="form"
                             sx={{
@@ -105,61 +50,40 @@ export default function SiginDailog(props) {
                         >
                             <div>
                                 <TextField
-                                    id="outlined-error"
-                                    label="First Name"
-                                    value={firstName}
-                                    onChange={handleName}
-                                    type="text"
-                                />
-                                <TextField
-
-                                    id="outlined-error-helper-text"
-                                    label="Last Name"
-                                    value={lastName}
-                                    onChange={handleLastName}
-                                    type="text"
-
-                                />
-                            </div>
-                            <div>
-                                <TextField
-
-                                    id="outlined-error"
-                                    label="DOB"
-                                    value={age}
-                                    type="date"
-                                    onChange={handleAge}
-
-                                />
-                                <TextField
-
-                                    id="outlined-error-helper-text"
-                                    label="Qualification"
-                                    value={qualification}
-                                    onChange={handleQualification}
-
-                                />
-                            </div>
-                            <div>
-                                <TextField
-
-                                    id="outlined-error"
-                                    label="State"
-                                    value={state}
-                                    onChange={handleState}
-                                />
-                                <TextField
-
-                                    id="outlined-error-helper-text"
-                                    label="Pincode"
-                                    value={pincode}
+                                    placeholder='First Name'
                                     type='text'
-                                    onChange={handlePincode}
-                                    inputProps={{ maxlength: 6 }}
+                                />
+                                <TextField
+
+                                    placeholder='Last Name'
+                                    type='text'
 
                                 />
                             </div>
+                            <div>
+                                <TextField
 
+                                    placeholder='DOB'
+                                    type='date'
+                                />
+                                <TextField
+
+                                    placeholder='Quualification'
+                                    type='text'
+                                />
+                            </div>
+                            <div>
+                                <TextField
+
+                                    placeholder='State'
+                                    type='text'
+                                />
+                                <TextField
+                                    placeholder='Pincode'
+                                    type="text"
+                                    inputProps={{ maxlength: 6 }}
+                                />
+                            </div>
                         </Box>
 
 
@@ -167,13 +91,18 @@ export default function SiginDailog(props) {
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose}>
+
                         Cancle
                     </Button>
-                    <Button onClick={handleSubmit} autoFocus>
-                        Submit
-                    </Button>
+                    {/* <Button onClick={} autoFocus>
+                        Agree
+                    </Button> */}
                 </DialogActions>
             </Dialog>
         </div>
     );
 }
+
+
+
+export default SiginDailog
