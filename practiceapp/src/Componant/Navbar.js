@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
+import Test from "./Test";
 
 import ProfileDailog from './ProfileDailog'
 import SiginDailog from './SiginDailog'
@@ -21,7 +21,9 @@ const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [siginOpen, setSiginOpen] = React.useState(false);
-    const [profileOpen, setProfileOpen] = useState(false)
+    const [profileOpen, setProfileOpen] = useState(false);
+    const [testOpen, setTestOpen] = React.useState(false);
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -44,7 +46,10 @@ const Navbar = () => {
         setProfileOpen(true)
         console.log("Profile")
     }
-
+    const handleTest = () => {
+        setTestOpen(true)
+        console.log("Test")
+    }
     return (
         <div>
 
@@ -83,11 +88,15 @@ const Navbar = () => {
                                 Sign In </Button>
 
                         </Box>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'inline' } }}>
+                        <Box sx={{ display: { xs: 'none', md: 'inline' } }}>
 
                             <Button onClick={handleProfile} sx={{ my: 2, color: 'white' }}>
                                 Profile </Button>
+                        </Box>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'inline' } }}>
 
+                            <Button onClick={handleTest} sx={{ my: 2, color: 'white' }}>
+                                Test</Button>
                         </Box>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
@@ -131,6 +140,9 @@ const Navbar = () => {
                 sigin={siginOpen}
                 setSigin={setSiginOpen}
             />
+            <Test
+                test={testOpen}
+                testFalse={setTestOpen} />
         </div >
     )
 }

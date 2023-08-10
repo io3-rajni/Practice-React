@@ -1,8 +1,10 @@
 
 // import ChildComponant from "./ChildComponant"
-import React, { useState } from "react"
+
 import Navbar from './Navbar';
-// import SiginDailog from "./SiginDailog"
+import Background from "./Background"
+import Footer from './Footer';
+
 
 const Parentcomponant = () => {
 
@@ -10,7 +12,8 @@ const Parentcomponant = () => {
     return <>
 
         <Navbar />
-
+        <Background />
+        <Footer />
     </>
 }
 export default Parentcomponant
