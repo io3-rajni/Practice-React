@@ -9,7 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { TextField, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 const SiginDailog = (props) => {
-  const { sigin, setSigin, footer, setFooter } = props;
+  const { sigin, setSigin } = props;
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -20,11 +20,9 @@ const SiginDailog = (props) => {
 
   const handleClose = () => {
     setSigin(false);
+    // setFooter(false);
   };
-  const handleCloseFooter = () => {
-    setFooter(false);
-    console.log("footer");
-  };
+
   return (
     <div>
       {/* <Button variant="outlined" onClick={handleClickOpen}>
@@ -32,9 +30,9 @@ const SiginDailog = (props) => {
             </Button> */}
       <Dialog
         fullScreen={fullScreen}
-        open={(sigin, footer)}
+        open={(sigin)}
         onClose={handleClose}
-        onCloseFooter={handleCloseFooter}
+
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
