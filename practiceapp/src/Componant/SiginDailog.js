@@ -14,20 +14,13 @@ const SiginDailog = (props) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  // const handleClickOpen = () => {
-  //     setOpen(true);
-  // };
-
   const handleClose = () => {
     setSigin(false);
     // setFooter(false);
   };
 
   return (
-    <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-                Open responsive dialog
-            </Button> */}
+    <>
       <Dialog
         fullScreen={fullScreen}
         open={(sigin)}
@@ -39,33 +32,33 @@ const SiginDailog = (props) => {
           {"Enter Your Details"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            <Box
-              component="form"
-              sx={{
-                "& .MuiTextField-root": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <div>
-                <TextField placeholder="First Name" type="text" />
-                <TextField placeholder="Last Name" type="text" />
-              </div>
-              <div>
-                <TextField placeholder="DOB" type="date" />
-                <TextField placeholder="Quualification" type="text" />
-              </div>
-              <div>
-                <TextField placeholder="State" type="text" />
-                <TextField
-                  placeholder="Pincode"
-                  type="text"
-                  inputProps={{ maxlength: 6 }}
-                />
-              </div>
-            </Box>
-          </DialogContentText>
+
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": { m: 1, width: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <>
+              <TextField placeholder="First Name" type="text" />
+              <TextField placeholder="Last Name" type="text" />
+            </>
+            <>
+              <TextField placeholder="DOB" type="date" />
+              <TextField placeholder="Quualification" type="text" />
+            </>
+            <>
+              <TextField placeholder="State" type="text" />
+              <TextField
+                placeholder="Pincode"
+                type="text"
+                inputProps={{ maxLength: 6 }}
+              />
+            </>
+          </Box>
+
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
@@ -76,7 +69,7 @@ const SiginDailog = (props) => {
                     </Button> */}
         </DialogActions>
       </Dialog>
-    </div>
+    </ >
   );
 };
 

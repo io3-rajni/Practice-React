@@ -7,9 +7,11 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import SiginDailog from "./SiginDailog";
 import ContactDailog from "./ContactDailog"
+import HelpDailog from "./HelpDailog";
 const Footer = () => {
     const [footer, setFooter] = React.useState(false);
     const [openContact, setOpenContact] = React.useState(false)
+    const [openHelp, setOpenHelp] = React.useState(false)
     const handleLogin = () => {
         setFooter(true);
         console.log("Login");
@@ -17,6 +19,10 @@ const Footer = () => {
     const handleContact = () => {
         setOpenContact(true)
         console.log("contact")
+    }
+    const handleHelp = () => {
+        setOpenHelp(true)
+        console.log("help")
     }
     return (
         <>
@@ -37,7 +43,7 @@ const Footer = () => {
                             <Button onClick={handleContact} sx={{ my: 2, color: "white" }}>Contact</Button>
                         </Box>
                         <Box sx={{ display: { xs: "none", md: "inline" } }}>
-                            <Button sx={{ my: 2, color: "white" }}>Help</Button>
+                            <Button onClick={handleHelp} sx={{ my: 2, color: "white" }}>Help</Button>
                         </Box>{" "}
                         <Box sx={{ display: { xs: "none", md: "inline" } }}>
                             <Button sx={{ my: 2, color: "white" }}>Complaint</Button>
@@ -51,6 +57,9 @@ const Footer = () => {
                     </Toolbar>
                 </AppBar>
             </Box>
+            <HelpDailog
+                help={openHelp}
+                setHelp={setOpenHelp} />
             <ContactDailog
                 contact={openContact}
                 setContact={setOpenContact} />

@@ -21,7 +21,7 @@ const ProfileDailog = (props) => {
     };
     return (
 
-        <div>
+        <>
 
             <Dialog
                 fullScreen={fullScreen}
@@ -33,78 +33,44 @@ const ProfileDailog = (props) => {
                     {"Enter Your Details"}
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        <Box
-                            component="form"
-                            sx={{
-                                '& .MuiTextField-root': { m: 1, width: '25ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                        >
-                            <div>
+
+                    <Box
+                        component="form"
+                        sx={{
+                            '& .MuiTextField-root': { m: 1, width: '25ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                    >
+                        <>
+                            <TextField
+                                placeholder='Paste Photo'
+                                type='file'
+                            />
+
+                            <>
                                 <TextField
-                                    placeholder='Paste Photo'
-                                    type='file'
-                                />
-
-                                <div>
-                                    <TextField
-                                        placeholder='First Name'
-                                        type='text'
-                                    />
-                                    <TextField
-                                        placeholder='Middle Name'
-                                        type='text'
-                                    />
-                                    <TextField
-
-                                        placeholder='Last Name'
-                                        type='text'
-
-                                    />
-                                    <TextField
-
-                                        placeholder='DOB'
-                                        type='date'
-                                    />
-
-                                </div>
-                                <div>
-                                    <TextField
-
-                                        placeholder='Qualification'
-                                        type='text'
-                                    />
-                                    <TextField
-
-                                        placeholder='Bio'
-                                        type='text'
-                                        inputProps={{ maxlength: 50 }}
-                                    />
-
-
-
-                                </div>
-                                <TextField
-
-                                    placeholder='Number'
+                                    placeholder='First Name'
                                     type='text'
-                                    inputProps={{ maxlength: 12 }}
+                                />
+                                <TextField
+                                    placeholder='Middle Name'
+                                    type='text'
                                 />
                                 <TextField
 
-                                    placeholder='Email'
+                                    placeholder='Last Name'
                                     type='text'
 
                                 />
+                                <TextField
 
+                                    placeholder='DOB'
+                                    type='date'
+                                />
 
-                            </div>
-                            <div>
-
-
-
+                            </>
+                            <>
                                 <TextField
 
                                     placeholder='Qualification'
@@ -112,29 +78,63 @@ const ProfileDailog = (props) => {
                                 />
                                 <TextField
 
-                                    placeholder='Address'
+                                    placeholder='Bio'
                                     type='text'
-
-                                />
-                            </div>
-                            <div>
-                                <TextField
-
-                                    placeholder='State'
-                                    type='text'
-                                />
-                                <TextField
-
-                                    placeholder='Pincode'
-                                    type='text'
-                                    inputProps={{ maxlength: 6 }}
+                                    inputProps={{ maxlength: 50 }}
                                 />
 
-                            </div>
-                        </Box>
 
 
-                    </DialogContentText>
+                            </>
+                            <TextField
+
+                                placeholder='Number'
+                                type='text'
+                                inputProps={{ maxlength: 12 }}
+                            />
+                            <TextField
+
+                                placeholder='Email'
+                                type='text'
+
+                            />
+
+
+                        </>
+                        <>
+
+
+
+                            <TextField
+
+                                placeholder='Qualification'
+                                type='text'
+                            />
+                            <TextField
+
+                                placeholder='Address'
+                                type='text'
+
+                            />
+                        </>
+                        <>
+                            <TextField
+
+                                placeholder='State'
+                                type='text'
+                            />
+                            <TextField
+
+                                placeholder='Pincode'
+                                type='text'
+                                inputProps={{ maxlength: 6 }}
+                            />
+
+                        </>
+                    </Box>
+
+
+
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose}>
@@ -145,7 +145,7 @@ const ProfileDailog = (props) => {
                     </Button> */}
                 </DialogActions>
             </Dialog>
-        </div>
+        </>
     )
 }
 
