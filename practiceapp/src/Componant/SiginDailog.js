@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -9,30 +9,74 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { TextField, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 const SiginDailog = (props) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [state, setState] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [age, setAge] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [dataSubmit, setDataSubmit] = useState({
+    firstName: "",
+    lastName: "",
+    age: "",
+    qualification: "",
+    state: "",
+    pincode: "",
+  });
   const { sigin, setSigin } = props;
-
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleClose = () => {
     setSigin(false);
-    // setFooter(false);
   };
-
+  const handleName = (e) => {
+    setFirstName(e.target?.value);
+    console.log("first name", firstName);
+  };
+  const handleLastName = (e) => {
+    setLastName(e?.target?.value);
+    console.log("last name", lastName);
+  };
+  const handleDate = (e) => {
+    setAge(e?.target?.value);
+    console.log("date", age);
+  };
+  const handleQualification = (e) => {
+    setQualification(e?.target?.value);
+    console.log("last name", qualification);
+  };
+  const handleState = (e) => {
+    setState(e?.target?.value);
+    console.log("State name", state);
+  };
+  const handlePincode = (e) => {
+    setPincode(e?.target?.value);
+    console.log("Pincode", pincode);
+  };
+  const handleSubmit = () => {
+    setDataSubmit({
+      firstName: "firstName",
+      lastName: "",
+      age: "",
+      qualification: "",
+      state: "",
+      pincode: "",
+    });
+    console.log("submit", dataSubmit);
+  };
   return (
     <>
       <Dialog
         fullScreen={fullScreen}
-        open={(sigin)}
+        open={sigin}
         onClose={handleClose}
-
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
           {"Enter Your Details"}
         </DialogTitle>
         <DialogContent>
-
           <Box
             component="form"
             sx={{
@@ -42,34 +86,60 @@ const SiginDailog = (props) => {
             autoComplete="off"
           >
             <>
-              <TextField placeholder="First Name" type="text" />
-              <TextField placeholder="Last Name" type="text" />
+              <TextField
+                placeholder="First Name"
+                type="text"
+                onChange={handleName}
+                value={firstName}
+              />
+              <TextField
+                placeholder="Last Name"
+                type="text"
+                onChange={handleLastName}
+                value={lastName}
+              />
             </>
             <>
-              <TextField placeholder="DOB" type="date" />
-              <TextField placeholder="Quualification" type="text" />
+              <TextField
+                placeholder="DOB"
+                type="date"
+                onChange={handleDate}
+                value={age}
+              />
+              <TextField
+                placeholder="Qualification"
+                type="text"
+                onChange={handleQualification}
+                value={qualification}
+              />
             </>
             <>
-              <TextField placeholder="State" type="text" />
+              <TextField
+                placeholder="State"
+                type="text"
+                onChange={handleState}
+                value={state}
+              />
               <TextField
                 placeholder="Pincode"
                 type="text"
                 inputProps={{ maxLength: 6 }}
+                onChange={handlePincode}
+                value={pincode}
               />
             </>
           </Box>
-
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
             Cancle
           </Button>
-          {/* <Button onClick={} autoFocus>
-                        Agree
-                    </Button> */}
+          <Button onClick={handleSubmit} autoFocus>
+            Submit
+          </Button>
         </DialogActions>
       </Dialog>
-    </ >
+    </>
   );
 };
 
