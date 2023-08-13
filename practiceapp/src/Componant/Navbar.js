@@ -50,6 +50,10 @@ const Navbar = () => {
         setTestOpen(true)
         console.log("Test")
     }
+    const handleChild = (data) => {
+
+        console.log("child tarnfer", data)
+    }
     return (
         <div>
 
@@ -139,6 +143,7 @@ const Navbar = () => {
             <SiginDailog
                 sigin={siginOpen}
                 setSigin={setSiginOpen}
+                handleChild={handleChild}
             />
             <Test
                 test={testOpen}

@@ -15,15 +15,23 @@ const SiginDailog = (props) => {
   const [qualification, setQualification] = useState("");
   const [age, setAge] = useState("");
   const [pincode, setPincode] = useState("");
-  const [dataSubmit, setDataSubmit] = useState({
-    firstName: "",
-    lastName: "",
-    age: "",
-    qualification: "",
-    state: "",
-    pincode: "",
-  });
-  const { sigin, setSigin } = props;
+  // const [childData, setChilData] = useState({
+  //   firstName: firstName,
+  //   lastName: lastName,
+  //   age: age,
+  //   qualification: qualification,
+  //   state: state,
+  //   pincode: pincode,
+  // })
+  // const [dataSubmit, setDataSubmit] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   age: "",
+  //   qualification: "",
+  //   state: "",
+  //   pincode: "",
+  // });
+  const { sigin, setSigin, handleChild } = props;
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -55,92 +63,91 @@ const SiginDailog = (props) => {
     console.log("Pincode", pincode);
   };
   const handleSubmit = () => {
-    setDataSubmit({
-      firstName: "firstName",
-      lastName: "",
-      age: "",
-      qualification: "",
-      state: "",
-      pincode: "",
-    });
-    console.log("submit", dataSubmit);
-  };
-  return (
-    <>
-      <Dialog
-        fullScreen={fullScreen}
-        open={sigin}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">
-          {"Enter Your Details"}
-        </DialogTitle>
-        <DialogContent>
-          <Box
-            component="form"
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <>
-              <TextField
-                placeholder="First Name"
-                type="text"
-                onChange={handleName}
-                value={firstName}
-              />
-              <TextField
-                placeholder="Last Name"
-                type="text"
-                onChange={handleLastName}
-                value={lastName}
-              />
-            </>
-            <>
-              <TextField
-                placeholder="DOB"
-                type="date"
-                onChange={handleDate}
-                value={age}
-              />
-              <TextField
-                placeholder="Qualification"
-                type="text"
-                onChange={handleQualification}
-                value={qualification}
-              />
-            </>
-            <>
-              <TextField
-                placeholder="State"
-                type="text"
-                onChange={handleState}
-                value={state}
-              />
-              <TextField
-                placeholder="Pincode"
-                type="text"
-                inputProps={{ maxLength: 6 }}
-                onChange={handlePincode}
-                value={pincode}
-              />
-            </>
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Cancle
-          </Button>
-          <Button onClick={handleSubmit} autoFocus>
-            Submit
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </>
-  );
+
+    handleChild({
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+      qualification: qualification,
+      state: state,
+      pincode: pincode,
+    })
+  }
+  return <>
+    <Dialog
+      fullScreen={fullScreen}
+      open={sigin}
+      onClose={handleClose}
+      aria-labelledby="responsive-dialog-title"
+    >
+      <DialogTitle id="responsive-dialog-title">
+        {"Enter Your Details"}
+      </DialogTitle>
+      <DialogContent>
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <>
+            <TextField
+              placeholder="First Name"
+              type="text"
+              onChange={handleName}
+              value={firstName}
+            />
+            <TextField
+              placeholder="Last Name"
+              type="text"
+              onChange={handleLastName}
+              value={lastName}
+            />
+          </>
+          <>
+            <TextField
+              placeholder="DOB"
+              type="date"
+              onChange={handleDate}
+              value={age}
+            />
+            <TextField
+              placeholder="Qualification"
+              type="text"
+              onChange={handleQualification}
+              value={qualification}
+            />
+          </>
+          <>
+            <TextField
+              placeholder="State"
+              type="text"
+              onChange={handleState}
+              value={state}
+            />
+            <TextField
+              placeholder="Pincode"
+              type="text"
+              inputProps={{ maxLength: 6 }}
+              onChange={handlePincode}
+              value={pincode}
+            />
+          </>
+        </Box>
+      </DialogContent>
+      <DialogActions>
+        <Button autoFocus onClick={handleClose}>
+          Cancle
+        </Button>
+        <Button onClick={handleSubmit} autoFocus>
+          Submit
+        </Button>
+      </DialogActions>
+    </Dialog>
+  </>
+
 };
 
 export default SiginDailog;
