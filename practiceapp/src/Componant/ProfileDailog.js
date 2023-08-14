@@ -38,7 +38,6 @@ const ProfileDailog = (props) => {
   //     Address: "",
   //     bio: "",
   //   });
-
   const handleClose = () => {
     setProfile(false);
   };

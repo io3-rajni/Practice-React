@@ -56,6 +56,7 @@ const Navbar = () => {
   const handleChildProfile = (profileData) => {
     console.log("Profile", profileData);
   };
+  console.log("sigin", siginOpen)
   return (
     <div>
       <AppBar position="static">
@@ -147,6 +148,17 @@ const Navbar = () => {
         handleChild={handleChild}
       />
       <Test test={testOpen} testFalse={setTestOpen} />
+      <ul>
+        <li>First Name :{siginOpen}</li>
+        <li>LastName : {siginOpen}</li>
+        <li>Age : {siginOpen}</li>
+        <li>Qualification : {siginOpen}</li>
+        <li>State : {siginOpen}</li>
+        <li>Pincode : {siginOpen}</li>
+
+
+      </ul>
+
     </div>
   );
 };
