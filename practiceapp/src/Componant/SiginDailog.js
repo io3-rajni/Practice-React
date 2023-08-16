@@ -9,6 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { TextField, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 const SiginDailog = (props) => {
+  const { sigin, setSigin, handleChild } = props;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [state, setState] = useState("");
@@ -31,7 +32,6 @@ const SiginDailog = (props) => {
   //   state: "",
   //   pincode: "",
   // });
-  const { sigin, setSigin, handleChild } = props;
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 

@@ -76,7 +76,7 @@ const ProfileDailog = (props) => {
   };
   const handleSubmit = () => {
     handleChildProfile({
-      Photo: pic,
+      Pic: pic,
       FirstName: firstName,
       MiddleName: middleName,
       LastName: lastName,

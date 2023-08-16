@@ -23,7 +23,8 @@ const Navbar = () => {
   const [siginOpen, setSiginOpen] = React.useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [testOpen, setTestOpen] = React.useState(false);
-  const [childData, setChildData] = useState("");
+  const [childData, setChildData] = useState({});
+  const [profileData, setProfileData] = useState({})
   console.log("child", childData);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -56,8 +57,10 @@ const Navbar = () => {
     console.log("child tarnfer", data);
   };
   const handleChildProfile = (profileData) => {
+    setProfileData(profileData)
     console.log("Profile", profileData);
   };
+
   console.log("sigin", siginOpen);
   return (
     <>
@@ -151,12 +154,26 @@ const Navbar = () => {
       />
       <Test test={testOpen} testFalse={setTestOpen} />
       <ul>
-        <li>First Name :{childData}</li>
-        {/* <li>LastName : {siginOpen}</li>
-        <li>Age : {siginOpen}</li>
-        <li>Qualification : {siginOpen}</li>
-        <li>State : {siginOpen}</li>
-        <li>Pincode : {siginOpen}</li> */}
+        <li>First Name :{childData?.firstName}</li>
+        <li>LastName : {childData?.lastName}</li>
+        <li>Age : {childData?.date}</li>
+        <li>Qualification : {childData?.qualification}</li>
+        <li>State : {childData?.state}</li>
+        <li>Pincode : {childData?.pincode}</li>
+      </ul>
+
+      <ul>
+        <li>Photo :{profileData?.Pic}</li>
+        <li>First Name :{profileData?.FirstName}</li>
+        <li>Middle Name : {profileData?.MiddleName}</li>
+        <li>LastName : {profileData?.LastName}</li>
+        <li>Age : {profileData?.Age}</li>
+        <li>Qualification : {profileData?.Qualification}</li>
+        <li>Number : {profileData?.Number}</li>
+        <li>Email : {profileData?.Email}</li>
+        <li>State : {profileData?.State}</li>
+        <li>Pincode : {profileData?.Pincode}</li>
+        <li>Address :{profileData?.Address}</li>
       </ul>
     </>
   );
