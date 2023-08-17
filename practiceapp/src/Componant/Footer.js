@@ -14,7 +14,8 @@ const Footer = () => {
   const [openContact, setOpenContact] = React.useState(false);
   const [openHelp, setOpenHelp] = React.useState(false);
   const [openComplaint, setOpenComplaint] = React.useState(false);
-  const [contact, setContact] = React.useState();
+  // const [contact, setContact] = React.useState();
+  const [contactChildData, setContactChildData] = React.useState({});
   const handleLogin = () => {
     setFooter(true);
     console.log("Login");
@@ -32,11 +33,17 @@ const Footer = () => {
     console.log("Complaint");
   };
   const handleContactChild = (data) => {
-    setContact(data);
-    console.log("Contact data", contact);
+    setContactChildData(data);
   };
+  console.log("Contact data", contactChildData);
+
   return (
     <>
+      <ul>
+        <li>Name : {contactChildData?.Name}</li>
+        <li>Contact :{contactChildData?.num}</li>
+        <li>Email :{contactChildData?.email}</li>
+      </ul>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -76,7 +83,7 @@ const Footer = () => {
       <ContactDailog
         contact={openContact}
         setContact={setOpenContact}
-        handleContactDailog={handleContactChild}
+        handleContactChild={handleContactChild}
       />
       <SiginDailog sigin={footer} setSigin={setFooter} />
       <Complaint Complaint={openComplaint} setComplaint={setOpenComplaint} />

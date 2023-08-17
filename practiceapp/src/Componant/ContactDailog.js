@@ -16,6 +16,7 @@ const ContactDailog = (props) => {
   //   });
   const [contactName, setContactName] = React.useState("");
   const [mobileNum, setMobileNum] = React.useState("");
+  const [email, setEmail] = React.useState("");
   //   const [submit, setSubmit] = React.useState({
   //     Name: "",
   //     Email: "",
@@ -31,14 +32,18 @@ const ContactDailog = (props) => {
   const handleNumber = (e) => {
     setMobileNum(e?.target?.value);
   };
+  const handleEmail = (e) => {
+    setEmail(e?.target?.value);
+  };
+  console.log("email", email);
   console.log("Contact", mobileNum);
   const handleSubmit = () => {
-    handleContactChild({ Name: contactName, Email: mobileNum });
+    handleContactChild({ Name: contactName, num: mobileNum, email: email });
   };
   //   console.log("submit", );
 
   return (
-    <div>
+    <>
       <Dialog
         open={contact}
         // TransitionComponent={Transition}
@@ -74,9 +79,10 @@ const ContactDailog = (props) => {
             />
             <TextField
               hiddenLabel
-              id="filled-hidden-label-normal"
-              defaultValue="Email"
+              placeholder="Email"
               variant="filled"
+              value={email}
+              onChange={handleEmail}
             />
           </Stack>
         </DialogContent>
@@ -85,7 +91,7 @@ const ContactDailog = (props) => {
           <Button onClick={handleSubmit}>Submit</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };
 export default ContactDailog;
