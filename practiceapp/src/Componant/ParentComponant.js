@@ -1,21 +1,23 @@
-
 // import ChildComponant from "./ChildComponant"
 
-import Navbar from './Navbar';
-import Background from "./Background"
-import Footer from './Footer';
-
+import Navbar from "./Navbar";
+import Background from "./Background";
+import Footer from "./Footer";
+import ProfileDailog from "./ProfileDailog";
 
 const Parentcomponant = () => {
+  return (
+    <>
+      <BrowserRouter>
+        <Router>
+          <Route path="/" element={ProfileDailog}></Route>
+        </Router>
+      </BrowserRouter>
 
-
-    return <>
-
-        <Navbar />
-        <Background />
-        <Footer />
+      <Navbar />
+      <Background />
+      <Footer />
     </>
-}
-export default Parentcomponant
-
-
+  );
+};
+export default Parentcomponant;

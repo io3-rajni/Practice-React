@@ -24,7 +24,7 @@ const Navbar = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [testOpen, setTestOpen] = React.useState(false);
   const [childData, setChildData] = useState({});
-  const [profileData, setProfileData] = useState({})
+  const [profileData, setProfileData] = useState({});
   console.log("child", childData);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,7 +57,7 @@ const Navbar = () => {
     console.log("child tarnfer", data);
   };
   const handleChildProfile = (profileData) => {
-    setProfileData(profileData)
+    setProfileData(profileData);
     console.log("Profile", profileData);
   };
 
@@ -91,17 +91,17 @@ const Navbar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white" }}
               >
-                Home{" "}
+                Home
               </Button>
             </Box>
             <Box sx={{ display: { xs: "none", md: "inline" } }}>
               <Button onClick={handleSignIn} sx={{ my: 2, color: "white" }}>
-                Sign In{" "}
+                Sign In
               </Button>
             </Box>
             <Box sx={{ display: { xs: "none", md: "inline" } }}>
               <Button onClick={handleProfile} sx={{ my: 2, color: "white" }}>
-                Profile{" "}
+                Profile
               </Button>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "inline" } }}>
