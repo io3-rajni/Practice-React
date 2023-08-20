@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { TextField, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
+import Navbar from "./Navbar";
 const ProfileDailog = (props) => {
   const { profile, setProfile, handleChildProfile } = props;
   const theme = useTheme();
@@ -93,6 +93,8 @@ const ProfileDailog = (props) => {
 
   return (
     <>
+      <Navbar />
+
       <Dialog
         fullScreen={fullScreen}
         open={profile}

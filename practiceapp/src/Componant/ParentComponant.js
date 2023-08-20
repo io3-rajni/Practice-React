@@ -8,11 +8,11 @@ import ProfileDailog from "./ProfileDailog";
 const Parentcomponant = () => {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Router>
           <Route path="/" element={ProfileDailog}></Route>
         </Router>
-      </BrowserRouter>
+      </BrowserRouter> */}
 
       <Navbar />
       <Background />
